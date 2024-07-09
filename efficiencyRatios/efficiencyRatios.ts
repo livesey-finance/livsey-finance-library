@@ -1,7 +1,6 @@
 import Big from 'big.js';
 import { LiveseyFinanceError } from '../errors/errors.ts';
 
-
 // EPS (ttm)
 export function calculateEPS(netIncome: number, sharesOutstanding: number): number {
     if (sharesOutstanding === 0) {
