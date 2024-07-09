@@ -1,3 +1,3 @@
-import {calculateDebtEquity} from './debtRatios/debtRatios.ts';
-const res = calculateDebtEquity(2000, 100);
+import {calculateLTDebtEquity} from './debtRatios/debtRatios.ts';
+const res = calculateLTDebtEquity(20000, 100);
 console.log(res);
