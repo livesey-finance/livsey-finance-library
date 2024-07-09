@@ -1,6 +1,6 @@
 {
   "name": "livsey-finance-library",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a simple financial library with most important ratios for investors/traders/etc",
   "type": "module",
   "main": "dist/index.js",
@@ -12,6 +12,10 @@
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.js"
+    },
+    "./node_modules/livsey-finance-library/": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
     }
   },
   "repository": {
@@ -19,7 +23,10 @@
     "url": "git+https://github.com/livesey-finance/livsey-finance-library.git"
   },
   "files": [
-    "dist"
+    "index.js",
+    "index.ts",
+    "tsconfig.json",
+    "dist/"
   ],
   "author": "hhuziuk",
   "license": "MIT",
