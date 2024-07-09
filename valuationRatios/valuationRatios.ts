@@ -1,5 +1,5 @@
 import Big from 'big.js';
-import { LiveseyFinanceError } from '../errors/errors.ts';
+import { LiveseyFinanceError } from '../errors/errors';
 
 // P/E Ratio
 export function calculatePE(price: number, eps: number): number {

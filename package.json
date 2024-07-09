@@ -1,16 +1,26 @@
 {
   "name": "livsey-finance-library",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a simple financial library with most important ratios for investors/traders/etc",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./index.ts"
+    "start": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./index.ts",
+    "build": "tsc"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
   },
   "repository": {
     "type": "git",
-    "url": "hhuziuk"
+    "url": "git+https://github.com/livesey-finance/livsey-finance-library.git"
   },
+  "files": [
+    "dist"
+  ],
   "author": "hhuziuk",
   "license": "MIT",
   "dependencies": {

@@ -1,5 +1,5 @@
 import Big from 'big.js';
-import { LiveseyFinanceError } from '../errors/errors.ts';
+import { LiveseyFinanceError } from '../errors/errors';
 
 // Debt/Equity (D/E)
 // D/E = Total Debt / Equity

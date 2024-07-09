@@ -1,5 +1,5 @@
 import Big from 'big.js';
-import { LiveseyFinanceError } from '../errors/errors.ts';
+import { LiveseyFinanceError } from '../errors/errors';
 
 // Enterprise Value/EBITDA
 // EV/EBITDA = EV / EBITDA

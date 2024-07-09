@@ -1,5 +1,5 @@
 import Big from 'big.js';
-import { LiveseyFinanceError } from '../errors/errors.ts';
+import { LiveseyFinanceError } from '../errors/errors';
 
 // Current Ratio
 export function calculateCurrentRatio(currentAssets: number, currentLiabilities: number): number {
