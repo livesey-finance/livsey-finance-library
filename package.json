@@ -1,6 +1,6 @@
 {
   "name": "livsey-finance-library",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "a simple financial library with most important ratios for investors/traders/etc",
   "type": "module",
   "main": "dist/index.js",
@@ -26,8 +26,12 @@
     "index.js",
     "index.ts",
     "tsconfig.json",
-    "dist/"
+    "dist/",
+    "./"
   ],
+  "bin": {
+    "livsey-finance-library": "index.js"
+  },
   "author": "hhuziuk",
   "license": "MIT",
   "dependencies": {
