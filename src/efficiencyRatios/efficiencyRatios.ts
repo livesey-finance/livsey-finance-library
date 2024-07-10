@@ -40,13 +40,13 @@ export function calculateROE(netIncome: number, equity: number) {
 }
 
 // ROI
-export function calculateROI(gains: number, cost: number): number {
+export function calculateROI(currentValue: number, cost: number): number {
     if (cost === 0) {
-        throw LiveseyFinanceError.ZeroDivisionError("Cost cannot be zero, as it would cause division by zero.");
+        throw new Error("Cost cannot be zero, as it would cause division by zero.");
     }
-    const gainsBig = new Big(gains);
+    const currentValueBig = new Big(currentValue);
     const costBig = new Big(cost);
 
-    const roi = gainsBig.minus(costBig).div(costBig).toString();
+    const roi = currentValueBig.minus(costBig).div(costBig);
     return parseFloat(roi.toString());
 }
