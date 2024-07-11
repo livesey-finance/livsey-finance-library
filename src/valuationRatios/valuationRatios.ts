@@ -97,26 +97,3 @@ export function calculateCAPE(price: number, avgEarnings10Years: number): number
     return parseFloat(capeRatio.toString());
 }
 
-// CAPE ROE
-export function calculateCAPEROE(avgEarnings10Years: number, equity: number): number {
-    if (equity === 0) {
-        throw LiveseyFinanceError.ZeroDivisionError("Equity cannot be zero, as it would cause division by zero.");
-    }
-    const avgEarnings10YearsBig = new Big(avgEarnings10Years);
-    const equityBig = new Big(equity);
-
-    const capeROE = avgEarnings10YearsBig.div(equityBig);
-    return parseFloat(capeROE.toString());
-}
-
-// E/P Ratio
-export function calculateEP(eps: number, price: number): number {
-    if (price === 0) {
-        throw LiveseyFinanceError.ZeroDivisionError("Price cannot be zero, as it would cause division by zero.");
-    }
-    const epsBig = new Big(eps);
-    const priceBig = new Big(price);
-
-    const epRatio = epsBig.div(priceBig);
-    return parseFloat(epRatio.toString());
-}

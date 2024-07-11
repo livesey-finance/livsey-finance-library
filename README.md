@@ -37,7 +37,19 @@ The Livesey Finance Library is a financial library designed for various financia
           <li><a href="#net-debt">Net Debt</a></li>
         </ul>
       </li>
-      <li><a href="#valuation-ratios">Valuation Ratios</a></li>
+   <li>
+    <a href="#valuation-ratios">Valuation ratios</a>
+    <ul>
+        <li><a href="#price-to-earnings">Price-to-Earnings</a></li>
+        <li><a href="#forward-price-to-earnings">Forward Price-to-Earnings</a></li>
+        <li><a href="#price-to-earnings-to-growth">Price-to-Earnings-to-Growth</a></li>
+        <li><a href="#price-to-sales">Price-to-Sales</a></li>
+        <li><a href="#price-to-book">Price-to-Book</a></li>
+        <li><a href="#price-to-cash-flow">Price-to-Cash Flow</a></li>
+        <li><a href="#price-to-free-cash-flow">Price to Free Cash Flow</a></li>
+        <li><a href="#cape-ratio">CAPE Ratio</a></li>
+    </ul>
+</li>
       <li><a href="#other-ratios">Other Ratios</a></li>
     </ul>
   </li>
@@ -312,6 +324,135 @@ const netDebt = calculateNetDebt(totalDebt, cash);
 console.log(netDebt); // Output: 300000
 ```
 
+### Valuation ratios
+
+* #### Price-to-Earnings
+The price-to-earnings ratio (P/E) is one of the most widely used metrics for investors and analysts to determine stock valuation. It shows whether a company’s stock price is overvalued or undervalued and can reveal how a stock’s valuation compares with its industry group or a benchmark like the S&P 500 Index. A [good P/E for one group or sector](https://www.investopedia.com/ask/answers/012015/what-average-pricetoearnings-ratio-oil-gas-drilling-sector.asp) could be a poor P/E for another sector, so comparisons should compare similar companies.
+
+The P/E ratio helps [investors](https://www.investopedia.com/terms/i/investor.asp) determine the [market value](https://www.investopedia.com/terms/m/marketvalue.asp) of a stock compared with the company’s [earnings](https://www.investopedia.com/terms/e/earnings.asp). It shows what the market is willing to pay for a stock based on its past or future earnings.
+
+$$
+\text{P/E} = \frac{\text{Price}}{\text{EPS}}
+$$
+
+####  Usage:
+
+```ts
+
+```
+
+* #### Forward Price-to-Earnings
+The forward P/E ratio (or forward price-to-earnings ratio) divides the current share price of a company by the estimated future (“forward”) [earnings per share (EPS)](https://corporatefinanceinstitute.com/resources/valuation/earnings-per-share-eps-formula/) of that company.  For [valuation purposes](https://corporatefinanceinstitute.com/resources/valuation/valuation/), a forward P/E ratio is typically considered more relevant than a historical P/E ratio.
+
+$$
+\text{Forward P/E} = \frac{\text{Price}}{\text{Forward EPS}}
+$$
+
+####  Usage:
+
+```ts
+
+```
+
+* #### Price-to-Earnings-to-Growth
+
+The price/earnings to growth ratio (PEG ratio) is a stock's [price-to-earnings](https://www.investopedia.com/terms/p/price-earningsratio.asp) (P/E) ratio divided by the growth rate of its earnings for a specified time period.
+
+The PEG ratio is used to determine a stock's value while also factoring in the company's expected earnings growth, and it is thought to provide a more complete picture than the more standard P/E ratio.
+
+$$
+\text{PEG} = \frac{\text{Price/EPS}}{\text{EPS Growth}}
+$$
+
+####  Usage:
+
+```ts
+
+```
+
+* #### Price-to-Sales
+
+The price-to-sales (P/S) ratio is a valuation ratio that compares a company’s stock price to its [revenues](https://www.investopedia.com/terms/r/revenue.asp). It is an indicator of the value that financial markets have placed on each dollar of a company’s sales or revenues.
+
+$$
+\text{P/S} = \frac{\text{Market Value per Share}}{\text{Sales per Share}}
+$$
+
+####  Usage:
+
+```ts
+
+```
+
+* #### Price-to-Book
+
+A company's price-to-book ratio is the company's current stock price per [share](https://www.investopedia.com/terms/s/shares.asp) divided by its book value per share (BVPS). This shows the market valuation of a company compared to its book value.
+
+If your goal as an investor is to unearth high-growth companies selling at low-growth prices, the [price-to-book ratio](https://www.investopedia.com/terms/p/price-to-bookratio.asp) (P/B) offers an effective approach to finding [undervalued](https://www.investopedia.com/terms/u/undervalued.asp) companies. The P/B ratio can also help investors identify and avoid [overvalued](https://www.investopedia.com/terms/o/overvalued.asp) companies.
+
+However, this ratio has its limitations and there are circumstances where it may not be the most effective metric for valuation.
+
+$$
+\text{P/B} = \frac{\text{Market Price per Share}}{\text{Book Value per Share}}
+$$
+
+####  Usage:
+
+```ts
+
+```
+
+* #### Price-to-Cash Flow
+
+The price-to-cash flow (P/CF) ratio is a stock valuation indicator or multiple that measures the value of a stock’s price relative to its [operating cash flow](https://www.investopedia.com/terms/o/operatingcashflow.asp) per share. The ratio uses operating cash flow (OCF), which adds back non-cash expenses such as depreciation and amortization to net income.
+
+P/CF is especially useful for valuing stocks that have positive cash flow but are not profitable because of large [non-cash charges](https://www.investopedia.com/terms/n/noncashcharge.asp).
+
+$$
+\text{P/CF} = \frac{\text{Share Price}}{\text{Operating Cash Flow per Share}}
+$$
+
+####  Usage:
+
+```ts
+
+```
+
+* #### Price to Free Cash Flow
+
+Price to free cash flow (P/FCF) is an equity [valuation](https://www.investopedia.com/terms/v/valuation.asp) metric that compares a company's per-share [market price](https://www.investopedia.com/terms/m/market-price.asp) to its [free cash flow](https://www.investopedia.com/terms/f/freecashflow.asp) (FCF). This metric is very similar to the valuation metric of price to cash flow but is considered a more exact measure because it uses free cash flow, which subtracts capital expenditures (CAPEX) from a company's total [operating cash flow](https://www.investopedia.com/terms/o/operatingcashflow.asp), thereby reflecting the actual cash flow available to fund non-asset-related growth.
+
+Companies can use this metric to base growth decisions and maintain acceptable free cash flow levels.
+
+$$
+\text{P/FCF} = \frac{\text{Market Capitalization}}{\text{Free Cash Flow}}
+$$
+
+####  Usage:
+
+```ts
+
+```
+
+* #### CAPE Ratio
+
+The CAPE ratio is a valuation measure that uses real [earnings per share](https://www.investopedia.com/terms/e/eps.asp) (EPS) over a 10-year period to smooth out fluctuations in corporate profits that occur over different periods of a [business cycle](https://www.investopedia.com/terms/b/businesscycle.asp).
+
+The CAPE ratio, an acronym for cyclically adjusted price-to-earnings ratio, was popularized by Yale University professor Robert Shiller. It is also known as the Shiller P/E ratio. The [P/E ratio](https://www.investopedia.com/terms/p/price-earningsratio.asp) is a valuation metric that measures a stock’s price relative to the company’s earnings per share. EPS is a [company](https://www.investopedia.com/terms/c/company.asp)’s profit divided by the outstanding equity shares.
+
+The CAPE ratio is generally applied to broad [equity](https://www.investopedia.com/terms/e/equity.asp) indexes to assess whether the market is undervalued or overvalued. While it is a popular and widely followed measure, several leading [industry](https://www.investopedia.com/terms/i/industry.asp) practitioners have called into question its utility as a predictor of future stock market returns.
+
+$$
+\text{CAPE} = \frac{\text{Share Price}}{\text{Average, Inflation-Adjusted Earnings over 10 Years}}
+$$
+
+####  Usage:
+
+```ts
+
+```
+
 <!-- SOURCES -->
 ## Sources:
-* ### https://www.investopedia.com/
+* #### https://www.investopedia.com/
+* #### https://corporatefinanceinstitute.com/
