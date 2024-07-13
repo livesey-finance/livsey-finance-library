@@ -49,8 +49,16 @@ The Livesey Finance Library is a financial library designed for various financia
         <li><a href="#price-to-free-cash-flow">Price to Free Cash Flow</a></li>
         <li><a href="#cape-ratio">CAPE Ratio</a></li>
     </ul>
-</li>
-      <li><a href="#other-ratios">Other Ratios</a></li>
+    </li>
+    <li>
+      <a href="#other-ratios">Other ratios</a>
+        <ul>
+          <li><a href="#enterprise-value">Enterprise Value</a></li>
+          <li><a href="#ev-to-ebitda">EV to EBITDA</a></li>
+          <li><a href="#ev-to-cash-flow-from-operations">EV to Cash Flow from Operations</a></li>
+          <li><a href="#ev-to-free-cash-flow-to-firm">EV to Free Cash Flow to Firm</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li><a href="#errors">Errors</a></li>
@@ -59,8 +67,8 @@ The Livesey Finance Library is a financial library designed for various financia
   </ul>
   <li><a href="#contributing">Contributing</a></li>
   <li><a href="#license">License</a></li>
-  <li><a href="#sources">Sources</a></li>
   <li><a href="#contact">Contact</a></li>
+  <li><a href="#sources">Sources</a></li>
 </ol>
 
 <!-- GETTING STARTED -->
@@ -338,7 +346,13 @@ $$
 ####  Usage:
 
 ```ts
+import { calculatePE } from "livsey-finance-library";
+  
+const price = 150;
+const eps = 5;
 
+const peRatio = calculatePE(price, eps);
+console.log(peRatio); // Output: 30
 ```
 
 * #### Forward Price-to-Earnings
@@ -351,7 +365,13 @@ $$
 ####  Usage:
 
 ```ts
+import { calculateForwardPE } from "livsey-finance-library";
+  
+const priceForwardPE = 150;
+const forwardEps = 6;
 
+const forwardPeRatio = calculateForwardPE(priceForwardPE, forwardEps);
+console.log(forwardPeRatio); // Output: 25
 ```
 
 * #### Price-to-Earnings-to-Growth
@@ -367,7 +387,13 @@ $$
 ####  Usage:
 
 ```ts
+import { calculatePEG } from "livsey-finance-library";
+  
+const pe = 30;
+const growthRate = 15;
 
+const pegRatio = calculatePEG(pe, growthRate);
+console.log(pegRatio); // Output: 2
 ```
 
 * #### Price-to-Sales
@@ -381,7 +407,13 @@ $$
 ####  Usage:
 
 ```ts
+import { calculatePS } from "livsey-finance-library";
+  
+const marketCap = 500000000;
+const revenue = 100000000;
 
+const psRatio = calculatePS(marketCap, revenue);
+console.log(psRatio); // Output: 5
 ```
 
 * #### Price-to-Book
@@ -399,7 +431,13 @@ $$
 ####  Usage:
 
 ```ts
+import { calculatePB } from "livsey-finance-library";
+  
+const pricePB = 150;
+const bookValuePerShare = 50;
 
+const pbRatio = calculatePB(pricePB, bookValuePerShare);
+console.log(pbRatio); // Output: 3
 ```
 
 * #### Price-to-Cash Flow
@@ -415,7 +453,13 @@ $$
 ####  Usage:
 
 ```ts
+import { calculatePC } from "livsey-finance-library";
+  
+const pricePC = 150;
+const cashFlowPerShare = 10;
 
+const pcRatio = calculatePC(pricePC, cashFlowPerShare);
+console.log(pcRatio); // Output: 15
 ```
 
 * #### Price to Free Cash Flow
@@ -431,7 +475,13 @@ $$
 ####  Usage:
 
 ```ts
+import { calculatePFCF } from "livsey-finance-library";
+  
+const pricePFCF = 150;
+const freeCashFlowPerShare = 8;
 
+const pfcfRatio = calculatePFCF(pricePFCF, freeCashFlowPerShare);
+console.log(pfcfRatio); // Output: 18.75
 ```
 
 * #### CAPE Ratio
@@ -449,10 +499,137 @@ $$
 ####  Usage:
 
 ```ts
+import { calculateCAPE } from "livsey-finance-library";
+  
+const priceCAPE = 150;
+const avgEarnings10Years = 12;
 
+const capeRatio = calculateCAPE(priceCAPE, avgEarnings10Years);
+console.log(capeRatio); // Output: 12.5
 ```
+
+### Other ratios
+
+* #### Enterprise Value
+Enterprise value (EV) measures a company’s total value, often used as a more comprehensive alternative to market capitalization. EV includes in its calculation not only the [market capitalization](https://www.investopedia.com/terms/m/marketcapitalization.asp) of a company but also short-term and long-term debt and any cash or cash equivalents on the company’s balance sheet.
+
+$$
+\text{EV} = \text{Market Capitalization} + \text{Total Debt} - \text{Cash}
+$$
+
+####  Usage:
+
+```ts
+import { calculateEV } from 'livsey-finance-library';
+
+const marketCap = 5000000; // Market Capitalization
+const totalDebt = 2000000; // Total Debt
+const cash = 1000000; // Cash on Hand
+
+const ev = calculateEV(marketCap, totalDebt, cash);
+console.log(ev); // Output: 6000000
+```
+
+
+* #### EV to EBITDA
+The EV/[EBITDA](https://www.investopedia.com/terms/e/ebitda.asp) ratio is a popular [metric](https://www.investopedia.com/terms/m/metrics.asp) used as a [valuation](https://www.investopedia.com/terms/v/valuation.asp) tool to compare the value of a company, debt included, to the company’s cash earnings less non-cash expenses. It's ideal for analysts and investors looking to compare companies within the same industry.
+
+The enterprise-value-to-EBITDA ratio is calculated by dividing EV by EBITDA or earnings before interest, taxes, [depreciation](https://www.investopedia.com/terms/d/depreciation.asp), and [amortization](https://www.investopedia.com/terms/a/amortization.asp). Typically, EV/EBITDA values below 10 are seen as healthy. However, the comparison of [relative values](https://www.investopedia.com/terms/r/relative-value.asp) among companies within the same industry is the best way for investors to determine companies with the healthiest EV/EBITDA within a specific sector.
+
+$$
+\text{EV/EBITDA} = \frac{\text{Enterprise Value}}{\text{EBITDA}}
+$$
+
+####  Usage:
+
+```ts
+import { calculateEV, calculateEVtoEBITDA } from 'livsey-finance-library';
+
+const marketCap = 5000000; // Market Capitalization
+const totalDebt = 2000000; // Total Debt
+const cash = 1000000; // Cash on Hand
+const ebitda = 1500000; // Earnings Before Interest, Taxes, Depreciation, and Amortization
+
+const ev = calculateEV(marketCap, totalDebt, cash);
+const evToEbitda = calculateEVtoEBITDA(ev, ebitda);
+console.log(evToEbitda); // Output: 4
+```
+
+### EV to Cash Flow from Operations
+
+Cash Flow from Operations (CFO) represents the net cash generated from a company’s core business operations, excluding capital expenditures and financing activities. It measures the company's ability to generate cash flow from its regular business activities.
+
+$$
+\text{EV/CFO} = \frac{\text{Enterprise Value}}{\text{Cash Flow from Operations}}
+$$
+
+####  Usage:
+
+```ts
+import { calculateEV, calculateEVCFO } from 'livsey-finance-library';
+
+const marketCap = 5000000; // Market Capitalization
+const totalDebt = 2000000; // Total Debt
+const cash = 1000000; // Cash on Hand
+const cfo = 1200000; // Cash Flow from Operations
+
+const ev = calculateEV(marketCap, totalDebt, cash);
+const evToCfo = calculateEVCFO(ev, cfo);
+console.log(evToCfo); // Output: 5
+```
+
+### EV to Free Cash Flow to Firm
+
+Free Cash Flow to Firm (FCFF) represents the net cash available to the firm after accounting for capital expenditures and operating expenses, before any interest payments are made. It measures the company's ability to generate cash flow from its operations that can be used for expansion, debt repayment, or other purposes.
+
+$$
+\text{EV/FCFF} = \frac{\text{Enterprise Value}}{\text{Free Cash Flow to Firm}}
+$$
+
+####  Usage:
+
+```ts
+import { calculateEV, calculateEVFCFF } from 'livsey-finance-library';
+
+const marketCap = 5000000; // Market Capitalization
+const totalDebt = 2000000; // Total Debt
+const cash = 1000000; // Cash on Hand
+const fcff = 1100000; // Free Cash Flow to Firm
+
+const ev = calculateEV(marketCap, totalDebt, cash);
+const evToFcff = calculateEVFCFF(ev, fcff);
+console.log(evToFcff); // Output: 5.454545454545454
+```
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/Features`)
+3. Commit your Changes (`git commit -m 'Add some Features'`)
+4. Push to the Branch (`git push origin feature/Features`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTACT -->
+## Contact
+Heorhii Huziuk - huziukwork@gmail.com
 
 <!-- SOURCES -->
 ## Sources:
 * #### https://www.investopedia.com/
 * #### https://corporatefinanceinstitute.com/
+* #### https://optionstrategiesinsider.com/
