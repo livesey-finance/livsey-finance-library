@@ -1,3 +1,4 @@
+<a name="readme-top"></a>
 # livsey-finance-library
 The Livesey Finance Library is a financial library designed for various financial calculations and data analysis. This library provides tools and functions essential for handling financial computations, making it easier for developers to implement financial logic in their projects. By integrating this library, users can efficiently manage and analyze financial data, leading to more productive and accurate financial software development.
 
@@ -61,9 +62,9 @@ The Livesey Finance Library is a financial library designed for various financia
       </li>
     </ul>
   </li>
-  <li><a href="#errors">Errors</a></li>
+  <li><a href="#exceptions">Exceptions</a></li>
   <ul>
-    <li><a href="#zero-division-error">ZeroDivisionError</a></li>
+    <li><a href="#zerodivisionerror">ZeroDivisionError</a></li>
   </ul>
   <li><a href="#contributing">Contributing</a></li>
   <li><a href="#license">License</a></li>
@@ -600,6 +601,12 @@ const ev = calculateEV(marketCap, totalDebt, cash);
 const evToFcff = calculateEVFCFF(ev, fcff);
 console.log(evToFcff); // Output: 5.454545454545454
 ```
+
+## Exceptions
+
+* ### ZeroDivisionError
+
+Raised when the second argument of a division or modulo operation is zero. The associated value is a string indicating the type of the operands and the operation.
 
 <!-- CONTRIBUTING -->
 ## Contributing
