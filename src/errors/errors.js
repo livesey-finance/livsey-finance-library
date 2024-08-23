@@ -1,13 +1,13 @@
 export class LiveseyFinanceError extends Error {
-    errors: string[];
+    errors = [];
 
-    constructor(message: string, errors = []) {
+    constructor(message, errors = []) {
         super(message);
         this.errors = errors;
         Object.setPrototypeOf(this, LiveseyFinanceError.prototype);
     }
 
-    static ZeroDivisionError(message: string, errors = []) {
+    static ZeroDivisionError(message, errors = []) {
         throw new LiveseyFinanceError(message, errors);
     }
 }
