@@ -2,12 +2,10 @@
   "name": "livsey-finance-library",
   "version": "1.0.0",
   "description": "a simple financial library with most important ratios for investors/traders/etc",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "type": "module",
+  "main": "./src/index.js",
   "scripts": {
-    "start": "node --no-warnings=ExperimentalWarning --loader ts-node/esm ./src/index.ts",
-    "build": "tsc && tsc --project tsconfig.cjs.json"
+    "start": "npx eslint --config ./src/eslint.config.mjs ./src --fix && node ./src/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,11 +19,10 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@types/big.js": "^6.2.2",
-    "big.js": "^6.2.1",
-    "typescript": "^5.5.3"
+    "big.js": "^6.2.1"
   },
   "devDependencies": {
-    "ts-node": "^10.9.2"
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-jsdoc": "^50.2.2"
   }
 }
