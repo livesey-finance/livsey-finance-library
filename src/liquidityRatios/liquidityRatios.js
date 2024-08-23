@@ -1,4 +1,5 @@
 import { createFunction } from '../functions/functions.js';
+import Big from 'big.js';
 
 export const calculateCurrentRatio = createFunction('Current liabilities cannot be zero, as it would cause division by zero.');
 

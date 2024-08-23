@@ -1,4 +1,5 @@
 import { createFunction } from '../functions/functions.js';
+import Big from 'big.js';
 
 export function calculateEPS(netIncome, preferredDividends, sharesOutstanding) {
   if (sharesOutstanding === 0) {
